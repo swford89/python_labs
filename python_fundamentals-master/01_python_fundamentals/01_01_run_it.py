@@ -14,3 +14,9 @@
 	- Calculate how many seconds are in a year.
 
 '''
+print("hello world!")
+
+#print(name_error)      # will produce a NameError
+#print(syntax_error     # will produce SyntaxError: EOF while parsing
+#print("hello world!)   # will produce SyntaxError: EOL while scanning string literal
+#print(int("s"))        # will produce ValueError: can't convert a string char into an integer

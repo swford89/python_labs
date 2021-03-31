@@ -7,3 +7,13 @@ Example input:  1,2,3,4,5,6,7,8,9,10
 Example output: 2,4,6,8,10,9,7,5,3,1
 
 '''
+
+num_list = []
+
+
+while len(num_list) < 10:
+    user_num = int(input("Enter a whole number: "))
+    num_list.append(user_num)
+
+print(f"The numbers in the order they were entered: {num_list}")
+print(f"All the even numbers, then descending back into the odd numbers: {num_list[1::2] + num_list[8::-2]}")

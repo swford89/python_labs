@@ -33,16 +33,12 @@ user_nums = input("Enter a list of numbers (ex. 1 2 3 ...): ").split()
 if len(user_nums) % 2 == 1:
     user_nums.append(str(0))
 
-# sort the list
 user_nums_sorted = sorted(user_nums)
 
-# convert list strings into integers
-# make a copy of the list to delete the tuples from
 list_of_ints = [int(strng) for strng in user_nums_sorted]
 copy_ints = list_of_ints.copy()
 print(f"List of user-entered sorted numbers: {list_of_ints}\nLength of list: {len(list_of_ints)}")
 
-# initialize list holding tuples
 list_of_tups = []
 while copy_ints:
     int_tup = tuple(copy_ints[0:2])
@@ -74,14 +70,10 @@ user_nums = input("Enter a set of numbers (ex. 1 2 3 ...): ").split()
 if len(user_nums) % 2 == 1:
     user_nums.append(str(0))
 
-# convert string numbers into integers
-# sort the list
 list_of_ints = [int(num) for num in user_nums]
 sorted_ints = sorted(list_of_ints)
 print(f"Sorted list of integers: {sorted_ints}")
 
-# initialize empty list for tuples
-# set a counter to index the next number in the sequence
 user_tups = []
 stop_value = 0
 for num in sorted_ints[::2]:

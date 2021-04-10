@@ -7,3 +7,12 @@ The output of your calculation should therefore look like this:
 
 The sum is: 5050
 '''
+first_num = int(input("Enter a number:"))
+second_num = int(input("Enter a second number, which is larger than the your first: "))
+
+num_sum = 0
+
+for num in range(first_num, second_num + 1):
+    num_sum += num
+
+print(f"The sum of {first_num}, {second_num}, and all the whole numbers in between: {num_sum}")

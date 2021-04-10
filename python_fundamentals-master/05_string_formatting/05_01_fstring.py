@@ -16,5 +16,19 @@ famous_quotes = [
     {"full_name": "Norman Augustine", "quote": "Software is like entropy: It is difficult to grasp, weighs nothing, "
                                                "and obeys the Second Law of Thermodynamics; i.e., it always increases."},
     {"full_name": "Nathan Myhrvold", "quote": "Software is a gas; it expands to fill its container."},
-    {"full_name": "Alan Bennett", "quote": "Standards are always out of date.  That’s what makes them standards."}
+    {"full_name": "Alan Bennett", "quote": "Standards are always out of date. That’s what makes them standards."}
 ]
+
+for entry in famous_quotes:
+    for key in entry.keys():
+        if key == "full_name":
+            name = entry[key].split()
+            if len(name) == 2:
+                last_first = name[-1], name[0]
+                last, first = last_first
+            elif len(name) == 3:
+                last_first_middle = name[-1], str(name[0] + " " + name[1])
+                last, first = last_first_middle
+        elif key == "quote":
+            quote_string = entry[key]
+    print(f"{quote_string} - {last}, {first}")

@@ -11,3 +11,7 @@ For example if n is 3, you print:
 '''
 
 n = 5
+star_char = "*"
+
+for num in range(1, n  + 1):
+    print(star_char * num)

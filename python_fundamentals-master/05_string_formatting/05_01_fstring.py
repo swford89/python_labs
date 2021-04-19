@@ -22,13 +22,12 @@ famous_quotes = [
 for entry in famous_quotes:
     for key in entry.keys():
         if key == "full_name":
-            name = entry[key].split()
-            if len(name) == 2:
-                last_first = name[-1], name[0]
-                last, first = last_first
-            elif len(name) == 3:
-                last_first_middle = name[-1], str(name[0] + " " + name[1])
-                last, first = last_first_middle
+            name_string = entry["full_name"].split()
+            first_name = name_string[0]
+            last_name = name_string[1]
+            if len(name_string) == 3:
+                first_name = name_string[0] + " " + name_string[1]
+                last_name = name_string[2]
         elif key == "quote":
-            quote_string = entry[key]
-    print(f"{quote_string} - {last}, {first}")
+            quote_string = entry["quote"]
+    print(f"{quote_string} - {last_name}, {first_name}")

@@ -27,8 +27,11 @@ office = [
 ]
 
 for entry in office:
-    if entry['full_name']:
-        first_last = entry['full_name'].split()
-        last_name = first_last[-1].upper()
-        first_name = first_last[0]
-    print(f"{last_name}, {first_name:<10}\t{entry['item']:<10}")
+    for key in entry.keys():
+        if key == "full_name":
+            first_last = entry["full_name"].split()
+            last_name = first_last[1].upper()
+            first_name = first_last[0].capitalize()
+        elif key == "item":
+            fav_item = entry["item"]
+    print(f"{last_name}, {first_name:<10}\t{fav_item:>16}")

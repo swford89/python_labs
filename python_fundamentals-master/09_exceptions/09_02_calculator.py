@@ -8,3 +8,22 @@ the script should handle:
 Test it and make sure it does not crash when you enter incorrect values.
 
 '''
+while True:
+    
+    try:
+        numerator = int(input("Enter a number for your numerator: "))
+        denominator = int(input("Enter a second number for your denominator: "))
+        quotient = numerator / denominator
+        print(f"{numerator} divided by {denominator} give you the quotient: {quotient}")
+        break
+    
+    except ValueError:
+        print("""
+        Make sure to enter a number value and not a letter.
+        """)
+
+    except ZeroDivisionError:
+        print("""
+        Make sure your denominator isn't zero. You can't divide by it.
+        """)
+   

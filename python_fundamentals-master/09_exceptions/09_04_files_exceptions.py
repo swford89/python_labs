@@ -23,3 +23,62 @@ BONUS CHALLENGE: write a custom Exception that inherits from Exception and raise
 first 100 characters of any of the files contain the string "Prince".
 
 '''
+class PrinceError(Exception):
+    pass
+
+tolstoy_list = []
+war_peace = ""
+crime_punishment = ""
+pride_prejudice = ""
+
+war_path = "/mnt/c/Users/Scott/Desktop/python_fundamentals_git/labs/python_fundamentals-master/09_exceptions/books/war_and_peace.txt"
+crime_path = "/mnt/c/Users/Scott/Desktop/python_fundamentals_git/labs/python_fundamentals-master/09_exceptions/books/crime_and_punishment.txt"
+pride_path = "/mnt/c/Users/Scott/Desktop/python_fundamentals_git/labs/python_fundamentals-master/09_exceptions/books/pride_and_prejudice.txt"
+
+# reading war and peace
+try:
+    with open(war_path, "r") as reading_war:
+        war_peace_read = reading_war.read()
+        war_peace = "".join(war_peace_read)
+        tolstoy_list.append(war_peace)
+
+except IOError:
+    print("""
+    There could be an error with your file or the path to it. Check it out.
+    """)
+
+# overwriting crime and punishment
+try:
+    with open(crime_path, "w") as writing_crime:
+        crime_punish = writing_crime.write(" ")
+
+    with open(crime_path, "r") as reading_crime:
+        overwritten_crime_read = reading_crime.read()
+        crime_punishment = "".join(overwritten_crime_read)
+        tolstoy_list.append(crime_punishment)
+
+except IOError:
+    print("""
+    There could be an error with your file or the path to it. Check it out.
+    """)
+
+# reading pride and prejudice
+try:
+    with open(pride_path, "r") as reading_pride:
+        pride_prejudice_read = reading_pride.read()
+        pride_prejudice = "".join(pride_prejudice_read)
+        tolstoy_list.append(pride_prejudice)
+
+except IOError:
+    print("""
+    There could be an error with your file or the path to it. Check it out.
+    """)
+
+# looping through stories to get first character
+for story in tolstoy_list:
+    print(f"First character in the story: {story[0]}")
+
+# looping through stories and raising custom error
+for story in tolstoy_list:
+    if "Prince" in story[0:101]:
+        raise PrinceError("Found a Prince!")

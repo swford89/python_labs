@@ -23,13 +23,18 @@ BONUS CHALLENGE: write a custom Exception that inherits from Exception and raise
 first 100 characters of any of the files contain the string "Prince".
 
 '''
+import webbrowser
 class PrinceError(Exception):
-    pass
+
+    def __init__(self, prince_string) -> None:
+        self.prince_string = prince_string
+        self.url = webbrowser.open_new_tab(error_url)
 
 tolstoy_list = []
 war_peace = ""
 crime_punishment = ""
 pride_prejudice = ""
+error_url = "https://www.reddit.com/r/PRINCE/comments/d1j0hs/my_attempt_at_a_prince_meme/"
 
 war_path = "/mnt/c/Users/Scott/Desktop/python_fundamentals_git/labs/python_fundamentals-master/09_exceptions/books/war_and_peace.txt"
 crime_path = "/mnt/c/Users/Scott/Desktop/python_fundamentals_git/labs/python_fundamentals-master/09_exceptions/books/crime_and_punishment.txt"
@@ -80,5 +85,9 @@ for story in tolstoy_list:
 
 # looping through stories and raising custom error
 for story in tolstoy_list:
-    if "Prince" in story[0:101]:
-        raise PrinceError("Found a Prince!")
+    try:
+        if "Prince" in story[0:101]:
+            raise PrinceError("Found a Prince!")
+    
+    except PrinceError as pe:
+        pe.url

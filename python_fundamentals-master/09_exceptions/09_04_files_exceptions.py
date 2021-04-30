@@ -30,7 +30,7 @@ class PrinceError(Exception):
         self.prince_string = prince_string
         self.url = webbrowser.open_new_tab(error_url)
 
-tolstoy_list = []
+classics_list = []
 war_peace = ""
 crime_punishment = ""
 pride_prejudice = ""
@@ -38,6 +38,7 @@ error_url = "https://www.reddit.com/r/PRINCE/comments/d1j0hs/my_attempt_at_a_pri
 
 war_path = "/mnt/c/Users/Scott/Desktop/python_fundamentals_git/labs/python_fundamentals-master/09_exceptions/books/war_and_peace.txt"
 crime_path = "/mnt/c/Users/Scott/Desktop/python_fundamentals_git/labs/python_fundamentals-master/09_exceptions/books/crime_and_punishment.txt"
+copy_crime_path = "/mnt/c/Users/Scott/Desktop/python_fundamentals_git/labs/python_fundamentals-master/09_exceptions/books/crime_and_punishment copy.txt"
 pride_path = "/mnt/c/Users/Scott/Desktop/python_fundamentals_git/labs/python_fundamentals-master/09_exceptions/books/pride_and_prejudice.txt"
 
 # reading war and peace
@@ -45,7 +46,7 @@ try:
     with open(war_path, "r") as reading_war:
         war_peace_read = reading_war.read()
         war_peace = "".join(war_peace_read)
-        tolstoy_list.append(war_peace)
+        classics_list.append(war_peace)
 
 except IOError:
     print("""
@@ -60,7 +61,11 @@ try:
     with open(crime_path, "r") as reading_crime:
         overwritten_crime_read = reading_crime.read()
         crime_punishment = "".join(overwritten_crime_read)
-        tolstoy_list.append(crime_punishment)
+        print(crime_punishment)                                 # confirm that it's overwritten
+
+    with open(copy_crime_path, "r") as copy_crime:              # read the copy and add to list
+        copy_crime_punishment = copy_crime.read()
+        classics_list.append(copy_crime_punishment)
 
 except IOError:
     print("""
@@ -72,7 +77,7 @@ try:
     with open(pride_path, "r") as reading_pride:
         pride_prejudice_read = reading_pride.read()
         pride_prejudice = "".join(pride_prejudice_read)
-        tolstoy_list.append(pride_prejudice)
+        classics_list.append(pride_prejudice)
 
 except IOError:
     print("""
@@ -80,14 +85,15 @@ except IOError:
     """)
 
 # looping through stories to get first character
-for story in tolstoy_list:
+for story in classics_list:
     print(f"First character in the story: {story[0]}")
 
 # looping through stories and raising custom error
-for story in tolstoy_list:
+for story in classics_list:
     try:
         if "Prince" in story[0:101]:
             raise PrinceError("Found a Prince!")
     
     except PrinceError as pe:
+        print(pe.prince_string)
         pe.url

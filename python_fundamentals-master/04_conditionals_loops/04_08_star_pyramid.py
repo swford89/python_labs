@@ -17,3 +17,23 @@ Another example: if input is 3, you will output
 Hint: Think of nested for loops
 
 '''
+star_char = "*"
+
+while True:
+    try:
+        user_num = int(input("Enter a realatively small number: "))
+        break
+    except ValueError:
+        print("""
+        Enter an integer.
+        """)
+
+print_count = 1
+while print_count < user_num:
+    if print_count > 1:
+        multi_star_char = star_char * print_count
+        print(" ".join(multi_star_char))
+        print_count += 1
+    else:
+        print(star_char)
+        print_count += 1

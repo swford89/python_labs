@@ -8,3 +8,10 @@ Use a loop to print the following table to the console:
  40 41 42 43 44 45 46 47 48 49
 
 '''
+nums_list = []
+
+for num in range(0,50):
+    nums_list.append(num)
+    if len(nums_list) == 10:
+        print(*nums_list)
+        nums_list.clear()
